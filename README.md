@@ -8,7 +8,7 @@ Penso nisso, foi pensado o **_eStore_**, uma loja virtual, onde é possível pes
 
 ## Funcionalidades
 
-- Pesquisar produtos
+- Visualizar produtos disponíveis na loja
 - Adicionar produtos para venda
 - Favoritar produtos
 
