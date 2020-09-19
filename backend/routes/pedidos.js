@@ -1,50 +1,19 @@
 const express = require("express");
 
-const router = express.Router();
+const routes = express.Router();
 
-//RETORNA TODOS OS PEDIDOS
-router.get("/", (req, res, next) => {
-    res.status(200).send({
-        mensagem: "Usando o GET da rota de pedido"
-    });
-});
+const PedidoController = require("../src/controllers/PedidoController");
 
+//RETORNA TODOS OS PEDIDO
+routes.get("/", PedidoController.listarPedidos);
 
-//INSERE UM PEDIDOS
-router.post("/", (req, res, next) => {
-    res.status(201).send({
-        mensagem: "Usando o POST dentro da rota de pedido"
-    });
-});
+//INSERE UM PEDIDO
+routes.post("/", PedidoController.inserirPedido);
 
-//RETORNA OS DADOS DE UM PEDIDOS
-router.get("/:id_produto", (req, res, next) => {
-    const id = req.params.id_produto;
+//RETORNA OS DADOS DE UM PEDIDO
+routes.get("/:id", PedidoController.mostrarPedido);
 
-    if (id === "especial") {
-        res.status(200).send({
-            mensagem: "Você descobriu o id especial",
-            id: id
-        });
-    } else {
-        res.status(200).send({
-            mensagem: "Você passou um id"
-        });
-    }
-});
+//DELETA UM PEDIDO
+routes.delete("/:id", PedidoController.destroy);
 
-//ALTERA UM PEDIDOS
-router.put("/", (req, res, next) => {
-    res.status(201).send({
-        mensagem: "Usando o PUT dentro da rota de pedido"
-    });
-});
-
-//DELETA UM PEDIDOS
-router.delete("/", (req, res, next) => {
-    res.status(201).send({
-        mensagem: "Usando o DELETE dentro da rota de pedido"
-    });
-});
-
-module.exports = router;
+module.exports = routes;
