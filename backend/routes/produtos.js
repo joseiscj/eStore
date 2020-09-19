@@ -2,49 +2,21 @@ const express = require("express");
 
 const router = express.Router();
 
-//RETORNA TODOS OS PRODUTOS
-router.get("/", (req, res, next) => {
-    res.status(200).send({
-        mensagem: "Usando o GET da rota de produtos"
-    });
-});
+const ProdutoController = require("../src/controllers/ProdutoController");
 
+//RETORNA TODOS OS PRODUTOS
+router.get("/", ProdutoController.listarProdutos);
 
 //INSERE UM PRODUTO
-router.post("/", (req, res, next) => {
-    res.status(201).send({
-        mensagem: "Usando o POST dentro da rota de produtos"
-    });
-});
+router.post("/", ProdutoController.inserirProduto);
 
 //RETORNA OS DADOS DE UM PRODUTO
-router.get("/:id_produto", (req, res, next) => {
-    const id = req.params.id_produto;
-
-    if (id === "especial") {
-        res.status(200).send({
-            mensagem: "Você descobriu o id especial",
-            id: id
-        });
-    } else {
-        res.status(200).send({
-            mensagem: "Você passou um id"
-        });
-    }
-});
+router.get("/:id", ProdutoController.mostrarProduto);
 
 //ALTERA UM PRODUTO
-router.put("/", (req, res, next) => {
-    res.status(201).send({
-        mensagem: "Usando o PUT dentro da rota de produtos"
-    });
-});
+router.put("/:id", ProdutoController.update);
 
 //DELETA UM PRODUTO
-router.delete("/", (req, res, next) => {
-    res.status(201).send({
-        mensagem: "Usando o DELETE dentro da rota de produtos"
-    });
-});
+router.delete("/:id", ProdutoController.destroy);
 
 module.exports = router;
