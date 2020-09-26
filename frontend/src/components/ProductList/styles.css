@@ -1,0 +1,13 @@
+div#products {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 5px;
+    color: grey;
+}
+
+button {
+    margin-left: 3px;
+}
+
+div#qnt {
+    margin-top: 5px;
+}
