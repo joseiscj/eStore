@@ -3,8 +3,9 @@ const app = express();
 const bodyParser = require('body-parser');
 
 
-const rotaProdutos = require("./routes/produtos")
-const rotaPedidos = require("./routes/pedidos")
+const rotaProdutos = require("./src/routes/produtos")
+
+const rotaPedidos = require("./src/routes/pedidos")
 
 app.use(bodyParser.urlencoded({ extended: false }));  // apenas dados simples
 app.use(bodyParser.json()); // json de entrada no body

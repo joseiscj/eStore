@@ -2,7 +2,8 @@ const express = require("express");
 
 const routes = express.Router();
 
-const PedidoController = require("../src/controllers/PedidoController");
+const PedidoController = require("../controllers/PedidoController");
+
 
 //RETORNA TODOS OS PEDIDO
 routes.get("/", PedidoController.listarPedidos);
