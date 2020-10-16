@@ -33,7 +33,7 @@ function ProductList(props) {
             </div>)}
             
 
-    <div id="qnt">Quantidade de produtos a serem comprados: {count}</div>
+        <p>Quantidade de produtos a serem comprados: {count}</p>
     </div>
     ) 
     
