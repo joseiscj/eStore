@@ -25,7 +25,8 @@ function ProductList(props) {
 
     return (
         <div className="plist">
-            <h1>Tipo de produto: {props.name}</h1>
+            
+            <h1>{props.name ? "Tipo de produto: "+(props.name) : "Tipo de produto: Diversos"}</h1>
             
             {data.map((e) => <div id="products"><Product nome={e.nome} descricao={e.descricao} preco={e.preco}/>
             <button onClick={() => setCount(count + 1)} class="favorite styled">Interesse em comprar</button>
