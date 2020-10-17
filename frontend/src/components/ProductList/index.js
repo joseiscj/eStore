@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Product from "../Product";
 import "./styles.css";
-import api from '../../services/api';
+import BaseService from '../../services/api';
 
 function ProductList(props) {
     const [count, setCount] = useState(0);
@@ -11,17 +11,15 @@ function ProductList(props) {
     //[{"nome": "Carregador de celular", "descricao": "Ótimo carregador de celular. Preço camarada.", preco: 50},
     //{"nome": "Aspirador de pó", "descricao": "A forma mais eficiente de sumir com a poeira.", preco: 150},
     //{"nome": "Playstation 5", "descricao": "A qualidade da Sony nesse console de última geração.", preco:4000}]
-        
+    
     useEffect(() => {
-        let getProdutos = async (page = 1) => {
-            let response = await api
-            .get(`/produtos?page=${page}`)
-              .catch((error) => console.log(error))
-            setData(response.data.docs);
-          };
-          console.log(data);
-          getProdutos();
-    }, [page])
+        let path = `/produtos?page=${page}`;
+        BaseService.getProducts(path)
+          .then(res => setData(res.data.docs))
+          .catch(error => console.log(error))
+      }, [page]);
+
+   
 
     return (
         <div className="plist">
@@ -32,7 +30,6 @@ function ProductList(props) {
             <button onClick={() => setCount(count + 1)} class="favorite styled">Interesse em comprar</button>
             </div>)}
             
-
         <p>Quantidade de produtos a serem comprados: {count}</p>
     </div>
     ) 
