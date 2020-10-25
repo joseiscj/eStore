@@ -1,7 +1,7 @@
 import React,{useContext} from 'react';
 import Header from "./components/Header";
 import ProductList from "./components/ProductList";
-import ThemedButton from "./components/themed-button"
+import ThemedButton from "./components/ThemedButton"
 import "./styles.css";
 
 
