@@ -1,13 +1,10 @@
-import React, {useContext} from "react";
+import React from "react";
 import "./styles.css";
-import ThemeContext from "../../context/ThemeContext"
 
 function Product(props) {
 
-    const { theme, toggleTheme } = useContext(ThemeContext);
-
     return (
-        <div className="product"  style={{ background: theme.background }}>
+        <div className="product" >
             
             <h3>{props.nome}</h3>
             <ul>
@@ -15,11 +12,6 @@ function Product(props) {
                 <li>Preço: R$ {props.preco}</li>
             </ul>
             
-            <div className="content"> 
-                <button onClick={toggleTheme}>
-                Toggle theme
-                </button>
-            </div>
         </div>
             
     )

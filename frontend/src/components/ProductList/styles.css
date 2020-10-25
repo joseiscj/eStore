@@ -4,10 +4,24 @@ div#products {
     color: grey;
 }
 
-button {
+button#b1 {
     margin-left: 80px;
+    margin-top: 5px;
 }
 
 div#qnt {
     margin-top: 5px;
+}
+
+button#b2 {
+    margin-left: 25%;
+    margin-top: 10px;
+}
+
+h1 {
+    color: dimgray;
+}
+
+p {
+    color: dimgrey;
 }

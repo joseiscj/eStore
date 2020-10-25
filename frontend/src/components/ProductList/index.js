@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Product from "../Product";
 import "./styles.css";
 import BaseService from '../../services/api';
+import ThemeContext from "../../context/ThemeContext"
 
 function ProductList(props) {
     const [count, setCount] = useState(0);
@@ -19,18 +20,19 @@ function ProductList(props) {
           .catch(error => console.log(error))
       }, [page]);
 
-   
+    const { theme, toggleTheme } = useContext(ThemeContext);
 
     return (
-        <div className="plist">
+        <div className="plist" style={{ background: theme.background }}>
             
             <h1>{props.name ? "Tipo de produto: "+(props.name) : "Tipo de produto: Diversos"}</h1>
             
             {data.map((e) => <div id="products"><Product nome={e.nome} descricao={e.descricao} preco={e.preco}/>
-            <button onClick={() => setCount(count + 1)} class="favorite styled">Interesse em comprar</button>
+            <button id="b1" onClick={() => setCount(count + 1)} class="favorite styled">Interesse em comprar</button>
             </div>)}
             
         <p>Quantidade de produtos a serem comprados: {count}</p>
+        <button id="b2" onClick={toggleTheme}>Toggle theme</button>
     </div>
     ) 
     
