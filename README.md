@@ -8,9 +8,12 @@ Penso nisso, foi pensado o **_eStore_**, uma loja virtual, onde é possível pes
 
 ## Funcionalidades
 
-- Visualizar produtos disponíveis na loja
+- Na página inicial, o usuário pode:
+  - Visualizar lista de produtos disponíveis na loja, onde cada produto contém contém descrição e preço.
 - Adicionar produtos para venda
+  - Nessa tela será possível adicionar um novo produto a loja, adicionando sua descrição e preço.
 - Favoritar produtos
+  - O usuário poderá adicionar produtos em sua lista de favoritos. Na tela dos favoritos também será possível remover produtos.
 
 ## Pré requisitos
 
