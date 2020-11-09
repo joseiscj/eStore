@@ -21,3 +21,13 @@ O Sistema Operacional usado foi o Linux e as tecnologias utilizadas foram HTML, 
 
 A IDE utilizada foi o Visual Studio Code.
 
+## Execução do projeto
+
+Para instalar as dependências, execute o seguinte comando:
+
+ `yarn install`
+ 
+Depois que as dependências estiverem completamente instaladas, você precisará executar o seguinte comando nos diretórios do cliente e do servidor separadamente:
+
+`yarn start`
+
