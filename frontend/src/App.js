@@ -6,6 +6,7 @@ import "./styles.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ProductList from "./components/ProductList";
 import { Switch, Route } from "react-router-dom";
+import Details from "./components/Details";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <Route path="/" component={Header}/>
       <Switch>
         <Route exact path="/" component={ProductList} />
+        <Route path = "/details" component={Details} />
       </Switch>
     </ThemedButton>
   );

@@ -25,7 +25,7 @@ function Product(props) {
                                     </Button>
                                 </Col>
                                 <Col>
-                                    <span className="text-muted text-right">{preco}</span>
+                                    <span className="text-muted text-right">{"R$ " + preco}</span>
                                 </Col>
                             </Row>
                         </Card.Footer>

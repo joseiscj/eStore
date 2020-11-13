@@ -6,7 +6,7 @@ function ProductList(props) {
     return (
         <div className="container">
             <div>
-                <h1>Encontre o seu produto aqui</h1>
+                <h1>Encontre o seu produto com a gente</h1>
             </div>
             <div className="row">
                 <ProductConsumer>
