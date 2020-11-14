@@ -2,6 +2,7 @@ import React from "react";
 import { ProductConsumer } from "../../contextAPI";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import "./styles.css";
 
 function Details(props) {
     return (
@@ -11,7 +12,7 @@ function Details(props) {
                 return (
                     <div className="container">
                         <div className="col-10 mx-auto text-center">
-                            <h1>Detalhes do produto</h1>
+                            <h1>Detalhes do {nome}</h1>
                         </div>
 
                     <div className="row">
@@ -25,13 +26,13 @@ function Details(props) {
                             <h3>
                                 {nome}
                             </h3>
-                            <h5>
-                                <strong>Preço: <span>R$</span>{preco}</strong>
-                            </h5>
-                            <h5>Descrição do produto :</h5>
-                            <div>{descricao}</div>
+                            <h4>
+                                <strong>Preço: <span>R$ </span>{preco}</strong>
+                            </h4>
+                            <h5>Descrição do produto:</h5>
+                            <div id="dsc">{descricao}</div>
                             <div>
-                                <Link to="/">Voltar à página de produtos</Link>
+                                <Link id="lk" to="/">Voltar à página de produtos</Link>
 
                                 <Button size="sm" disabled={inCart} onClick={()=>{value.addToCart(id)}} variant="secondary">
                                     {inCart === true ? (<span> No carrinho </span>) : (<span>Adicionar ao carrinho</span>)}
