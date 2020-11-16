@@ -10,10 +10,15 @@ Penso nisso, foi pensado o **_eStore_**, uma loja virtual, onde é possível pes
 
 - Na página inicial, o usuário pode:
   - Visualizar lista de produtos disponíveis na loja, onde cada produto contém contém descrição e preço.
-- Adicionar produtos para venda
-  - Nessa tela será possível adicionar um novo produto a loja, adicionando sua descrição e preço.
-- Favoritar produtos
-  - O usuário poderá adicionar produtos em sua lista de favoritos. Na tela dos favoritos também será possível remover produtos.
+  - Filtrar os produtos através das categorias.
+  - Adicionar o produto ao carrinho de compras.
+- Na página do carrinho de compras, o usuário pode:
+  - Remover do carrinho.
+  - Indicar a quantidade de cada produtos para compra.
+  - Ver o valor total da compra.
+- Na página de produtos, o usuário pode:
+  - Ver os detalhes do produto, como sua descrição e preço.
+  - Adicionar o produto ao carrinho de compras.
 
 ## Pré requisitos
 
