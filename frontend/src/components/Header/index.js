@@ -15,9 +15,13 @@ function Header () {
                 <Link to="/">Produtos</Link>
                 </Nav>
                 <Nav>
-                <Link style={{color:"mediumspringgreen"}} eventKey={2} to="/cart">
-                    Meu Carrinho
-                </Link>
+                <ProductConsumer>
+                    {(value)=> {
+                    return <Link style={{color:"mediumspringgreen"}} eventKey={2} to="/cart">
+                        Meu Carrinho({value.cart.length})
+                    </Link>
+                        }}
+                </ProductConsumer>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
