@@ -9,7 +9,8 @@ class ProductProvider extends Component {
 
         detailProduct : [{id: 1, nome: "Carregador de celular", descricao: "Ótimo carregador de celular. Preço camarada.", img: "img/playstation5.jpg", preco: 50, inCart: false, count: 1}],
 
-        cart: []
+        cart: [],
+        cartSubTotal: 0
     }
 
     getItem = (id) => {
@@ -30,10 +31,77 @@ class ProductProvider extends Component {
         const product = tempProduct[index];
         product.inCart = true;
         product.count = 1;
-        const price = product.price;
-        product.total = price;
+        const preco = product.preco;
+        product.total = preco;
         this.setState(()=> {
             return { products : tempProduct, cart: [...this.state.cart, product]}
+        }, ()=> { this.makeTotal() }
+        )
+    }
+
+    increment = (id) => {
+        let tempCart = [...this.state.cart];
+        const selectedProduct = tempCart.find(item => item.id === id);
+        const index = tempCart.indexOf(selectedProduct);
+        const product = tempCart[index];
+
+        product.count = product.count + 1;
+        product.total = product.count * product.preco;
+
+        this.setState(()=> {
+            return { cart : [...tempCart] }
+        },()=> {
+            this.makeTotal();
+        })
+    }
+
+    decrement = (id) => {
+        let tempCart = [...this.state.cart];
+        const selectedProduct = tempCart.find(item => item.id === id);
+        const index = tempCart.indexOf(selectedProduct);
+        const product = tempCart[index];
+
+        product.count = product.count - 1;
+        product.total = product.count * product.preco;
+
+        this.setState(()=> {
+            return { cart : [...tempCart] }
+        },()=> {
+            this.makeTotal();
+        })
+    }
+
+    removeItem = (id) => {
+        let tempProduct = [...this.state.products];
+        let tempCart = [...this.state.cart];
+        tempCart = tempCart.filter(item => item.id !== id);
+        const index = tempProduct.indexOf(this.getItem(id));
+
+        let removedProd = tempProduct[index];
+
+        removedProd.inCart = false;
+        removedProd.total = 0;
+        removedProd.count = 0;
+
+        this.setState(()=> {
+            return {
+                cart: [...tempCart],
+                product: [...tempProduct]
+            }
+        }, ()=> {
+            return this.makeTotal();
+        }
+        )
+    }
+
+    makeTotal = () => {
+        let subTotal = 0;
+        this.state.cart.map(item => (subTotal += item.total));
+        const total = subTotal;
+        this.setState(()=> {
+            return {
+                cartSubTotal : subTotal
+            }
         })
     }
 
@@ -41,7 +109,11 @@ class ProductProvider extends Component {
         return <ProductContext.Provider value={{
             ...this.state,
             handleDetails: this.handleDetails,
-            addToCart: this.addToCart
+            addToCart: this.addToCart,
+            increment: this.increment,
+            decrement: this.decrement,
+            makeTotal: this.makeTotal,
+            removeItem: this.removeItem
         }}>
             {this.props.children}
         </ProductContext.Provider>

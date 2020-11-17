@@ -13,22 +13,22 @@ function Cart() {
                                 <div><h1>Seu Carrinho</h1></div>
                                 <div className="container-fluid text-center">
                                     <div className="row">
-                                        <div className="col-10 col-lg2">
+                                        <div className="col-10 max-auto col-lg-2">
                                             <strong>Produto</strong>
                                         </div>
-                                        <div className="col-10 col-lg2">
+                                        <div className="col-10 max-auto col-lg-2">
                                             <strong>Nome do produto</strong>
                                         </div>
-                                        <div className="col-10 col-lg2">
+                                        <div className="col-10 max-auto col-lg-2">
                                             <strong>Preço</strong>
                                         </div>
-                                        <div className="col-10 col-lg2"> 
+                                        <div className="col-10 max-auto col-lg-2"> 
                                             <strong>Quantidade</strong>
                                         </div>
-                                        <div className="col-10 col-lg2">
+                                        <div className="col-10 max-auto col-lg-2">
                                             <strong>Remover</strong>
                                         </div>
-                                        <div className="col-10 col-lg2">
+                                        <div className="col-10 max-auto col-lg-2">
                                             <strong>Total</strong>
                                         </div>
                                     </div>
@@ -47,9 +47,9 @@ function Cart() {
                                                     {cartData.preco}
                                                 </div>
                                                 <div className="col-10 max-auto col-lg-2">
-                                                    <input size="sm" className="qtyminus" value="-" onClick={() => value.decrement(cartData.id)} />
+                                                    <input className="qtyminus" value='-' onClick={() => value.decrement(cartData.id)} size="sm"/>
                                                     {cartData.count}
-                                                    <input size="sm" className="qtyplus" value="+" onClick={() => value.increment(cartData.id)} />
+                                                    <input className="qtyplus" value='+' onClick={() => value.increment(cartData.id)} size="sm"/>
                                                 </div>
                                                 <div className="col-10 max-auto col-lg-2">
                                                     <Button variant="secondary" onClick={()=> {value.removeItem(cartData.id)}} size="sm">Remover</Button>
@@ -61,12 +61,20 @@ function Cart() {
                                         </div>
                                     )
                                 })}
+                                <hr></hr>
+                                <Container>
+                                    <Row>
+                                        <Col>
+                                            <strong>Total</strong>{value.cartSubTotal}
+                                        </Col>
+                                    </Row>
+                                </Container>
                             </div>
                         )
                     } else {
                         return (
                             <div>
-                                <h3> Atualmente o seu carrinho de compras está <span style={{color:"red"}}>Empty</span></h3>
+                                <h3> Atualmente o seu carrinho de compras está <span style={{color:"red"}}>Vazio</span></h3>
                             </div>
                         )
                     }
