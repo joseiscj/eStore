@@ -5,7 +5,8 @@ class ProductProvider extends Component {
     state = {
         products: [{id: 1, nome: "Carregador de celular", descricao: "Ótimo carregador de celular. Preço camarada.", img: "img/playstation5.jpg", preco: 50, inCart: false, count: 1, total: 50},
         {id: 2, nome: "Aspirador de pó", descricao: "A forma mais eficiente de sumir com a poeira.", img: "img/playstation5.jpg", preco: 150, inCart: false, count: 1, total: 150},
-        {id: 3, nome: "Playstation 5", descricao: "A qualidade da Sony nesse console de última geração.", img: "img/playstation5.jpg", preco:4000, inCart: false, count: 1, total: 4000}],
+        {id: 3, nome: "Playstation 5", descricao: "A qualidade da Sony nesse console de última geração.", img: "img/playstation5.jpg", preco:4000, inCart: false, count: 1, total: 4000},
+        {id: 4, nome: "Playstation 5", descricao: "A qualidade da Sony nesse console de última geração.", img: "img/playstation5.jpg", preco:4000, inCart: false, count: 1, total: 3000}],
 
         detailProduct : [{id: 1, nome: "Carregador de celular", descricao: "Ótimo carregador de celular. Preço camarada.", img: "img/playstation5.jpg", preco: 50, inCart: false, count: 1}],
 
@@ -60,15 +61,17 @@ class ProductProvider extends Component {
         const selectedProduct = tempCart.find(item => item.id === id);
         const index = tempCart.indexOf(selectedProduct);
         const product = tempCart[index];
+        if (product.count >= 2) {
 
-        product.count = product.count - 1;
-        product.total = product.count * product.preco;
+            product.count = product.count - 1;
+            product.total = product.count * product.preco;
 
-        this.setState(()=> {
-            return { cart : [...tempCart] }
-        },()=> {
-            this.makeTotal();
-        })
+            this.setState(()=> {
+                return { cart : [...tempCart] }
+            },()=> {
+                this.makeTotal();
+            })
+            }
     }
 
     removeItem = (id) => {

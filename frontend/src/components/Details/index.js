@@ -21,15 +21,16 @@ function Details(props) {
                         </div>
                     </div>
 
+                    
                     <div className="row">
-                        <div className="col-4 mx-auto col-md-4">
+                        <div className="col-10 mx-auto text-center">
                             <h3>
                                 {nome}
                             </h3>
-                            <h4>
+                            <h5>
                                 <strong>Preço: <span>R$ </span>{preco}</strong>
-                            </h4>
-                            <h5>Descrição do produto:</h5>
+                            </h5>
+                            <h6>Descrição do produto:</h6>
                             <div id="dsc">{descricao}</div>
                             <div>
                                 <Link id="lk" to="/">Voltar à página de produtos</Link>

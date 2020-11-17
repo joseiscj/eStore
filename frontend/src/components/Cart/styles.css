@@ -1,0 +1,16 @@
+div input#btn_menos {
+    width: 15px;
+    background-color: white;
+    border-color: rgb(241, 238, 238);
+}
+
+div input#btn_mais {
+    width: 15px;
+    background-color: white;
+    border-color: rgb(241, 238, 238);
+}
+
+strong#total {
+    justify-content: center;
+    align-items: center
+}

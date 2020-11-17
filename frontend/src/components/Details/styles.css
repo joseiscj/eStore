@@ -2,16 +2,24 @@
     margin-right: 4px;
 }
 
-h4 {
-    margin-top: 5px;
-}
-
-#dsc {
-    margin-top: -5px;
-    margin-bottom: 5px;
-    color: darkslategray;
+h3 {
+    margin-top: -30px;
 }
 
 h5 {
-    margin-top: 15px;
+    margin-top: 5px;
+    margin-right: 60px;
 }
+
+ #dsc {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: darkslategray;
+}
+
+h6 {
+    margin-top: 15px;
+    justify-content: center;
+    align-items: center;
+}
+

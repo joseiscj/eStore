@@ -1,6 +1,7 @@
 import React from "react";
 import { ProductConsumer } from "../../contextAPI";
 import { Button, Col, Container, Row } from "react-bootstrap";
+import "./styles.css";
 
 function Cart() {
     return (
@@ -47,9 +48,9 @@ function Cart() {
                                                     {cartData.preco}
                                                 </div>
                                                 <div className="col-10 max-auto col-lg-2">
-                                                    <input className="qtyminus" value='-' onClick={() => value.decrement(cartData.id)} size="sm"/>
+                                                    <input input type="button" id="btn_menos" name="btn_menos"  value="-" onClick={() => value.decrement(cartData.id)} />
                                                     {cartData.count}
-                                                    <input className="qtyplus" value='+' onClick={() => value.increment(cartData.id)} size="sm"/>
+                                                    <input type="button" id="btn_mais" name="btn_mais"  value="+" onClick={() => value.increment(cartData.id)}/>
                                                 </div>
                                                 <div className="col-10 max-auto col-lg-2">
                                                     <Button variant="secondary" onClick={()=> {value.removeItem(cartData.id)}} size="sm">Remover</Button>
@@ -65,7 +66,7 @@ function Cart() {
                                 <Container>
                                     <Row>
                                         <Col>
-                                            <strong>Total</strong>{value.cartSubTotal}
+                                            <strong id="total">Total </strong>R${value.cartSubTotal}
                                         </Col>
                                     </Row>
                                 </Container>
