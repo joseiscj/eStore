@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 import { Card, Row, Col, Button } from "react-bootstrap";
 import { ProductConsumer } from "../../contextAPI";
 import "./styles.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 
 function Product(props) {
     const { id, nome, img, preco, inCart } = props.product;

@@ -65,8 +65,8 @@ function Cart() {
                                 <hr></hr>
                                 <Container>
                                     <Row>
-                                        <Col>
-                                            <strong id="total">Total </strong>R${value.cartSubTotal}
+                                        <Col id="total">
+                                            <strong >Total  </strong>R$ {value.cartSubTotal}
                                         </Col>
                                     </Row>
                                 </Container>
@@ -74,7 +74,7 @@ function Cart() {
                         )
                     } else {
                         return (
-                            <div>
+                            <div id="vazio">
                                 <h3> Atualmente o seu carrinho de compras está <span style={{color:"red"}}>Vazio</span></h3>
                             </div>
                         )

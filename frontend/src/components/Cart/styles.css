@@ -10,7 +10,15 @@ div input#btn_mais {
     border-color: rgb(241, 238, 238);
 }
 
-strong#total {
-    justify-content: center;
-    align-items: center
+#total {
+    text-align: center;
+    font-size: 20px;
+}
+
+div h1 {
+    text-align: center;
+}
+
+#vazio {
+    text-align: center;
 }

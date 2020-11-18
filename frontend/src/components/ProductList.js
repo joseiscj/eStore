@@ -1,8 +1,6 @@
 import React from "react";
 import { ProductConsumer } from "../contextAPI";
 import Product from "./Product";
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 
 function ProductList(props) {
     return (
