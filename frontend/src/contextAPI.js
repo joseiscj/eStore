@@ -1,47 +1,50 @@
-import React, { Component } from "react"
+import React,  { useState, useEffect, useContext }from "react"
+import BaseService from '../src/services/api';
+
 const ProductContext = React.createContext();
 
-class ProductProvider extends Component {
-    state = {
-        products: [{id: 1, nome: "Carregador de celular", descricao: "Ótimo carregador de celular. Preço camarada.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5-qbM2gGKnzROqtCASHRwZ19B8FdnK6jDVFWDjXPQxGy7A6IjKh_WPIHFqOs&usqp=CAc", preco: 50, inCart: false, count: 1, total: 50},
-        {id: 2, nome: "Aspirador de pó", descricao: "A forma mais eficiente de sumir com a poeira.", img: "img/playstation5.jpg", preco: 150, inCart: false, count: 1, total: 150},
-        {id: 3, nome: "Playstation 5", descricao: "A qualidade da Sony nesse console de última geração.", img: "img/playstation5.jpg", preco:4000, inCart: false, count: 1, total: 4000},
-        {id: 4, nome: "Playstation 5", descricao: "A qualidade da Sony nesse console de última geração.", img: "img/playstation5.jpg", preco:4000, inCart: false, count: 1, total: 3000}],
+function ProductProvider(props) {
+    const [products, setProducts] = useState([]);
+    const [detailProduct, setDetailProduct] = useState([]);
+    const [cart, setCart] = useState([]);
+    const [cartSubTotal, setCartSubTotal] = useState(0);
 
-        detailProduct : [],
+    const [page, setPage] = useState(1);
 
-        cart: [],
-        cartSubTotal: 0
-    }
+    useEffect(() => {
+        let path = `/produtos?page=${page}`;
+        BaseService.getProducts(path)
+          .then(res => setProducts(res.data.docs))
+          .catch(error => console.log(error))
+        
+          console.log(path);
+          console.log(products);
+      }, [page]);
 
-    getItem = (id) => {
-        const product = this.state.products.find((item) => item.id === id);
+    function getItem(id) {
+        const product = products.find((item) => item.id === id);
         return product;
     }
 
-    handleDetails = (id) => {
-        const product = this.getItem(id);
-        this.setState({
-            detailProduct:product
-        })
+    function handleDetails(id) {
+        const product = getItem(id);
+        setDetailProduct(product);
     }
 
-    addToCart = (id) => {
-        let tempProduct = [...this.state.products];
-        const index = tempProduct.indexOf(this.getItem(id));
+    function addToCart(id) {
+        let tempProduct = [...products];
+        const index = tempProduct.indexOf(getItem(id));
         const product = tempProduct[index];
         product.inCart = true;
         product.count = 1;
         const preco = product.preco;
         product.total = preco;
-        this.setState(()=> {
-            return { products : tempProduct, cart: [...this.state.cart, product]}
-        }, ()=> { this.makeTotal() }
-        )
+        setProducts(tempProduct);
+        setCart([...cart, product]);
     }
 
-    increment = (id) => {
-        let tempCart = [...this.state.cart];
+    function increment(id) {
+        let tempCart = [...cart];
         const selectedProduct = tempCart.find(item => item.id === id);
         const index = tempCart.indexOf(selectedProduct);
         const product = tempCart[index];
@@ -49,15 +52,17 @@ class ProductProvider extends Component {
         product.count = product.count + 1;
         product.total = product.count * product.preco;
 
-        this.setState(()=> {
-            return { cart : [...tempCart] }
-        },()=> {
-            this.makeTotal();
-        })
+        setCart([...tempCart])
+
+        // this.setState(()=> {
+        //     return { cart : [...tempCart] }
+        // },()=> {
+        //     this.makeTotal();
+        // })
     }
 
-    decrement = (id) => {
-        let tempCart = [...this.state.cart];
+    function decrement(id) {
+        let tempCart = [...cart];
         const selectedProduct = tempCart.find(item => item.id === id);
         const index = tempCart.indexOf(selectedProduct);
         const product = tempCart[index];
@@ -66,19 +71,21 @@ class ProductProvider extends Component {
             product.count = product.count - 1;
             product.total = product.count * product.preco;
 
-            this.setState(()=> {
-                return { cart : [...tempCart] }
-            },()=> {
-                this.makeTotal();
-            })
+            setCart([...tempCart])
+
+            // this.setState(()=> {
+            //     return { cart : [...tempCart] }
+            // },()=> {
+            //     this.makeTotal();
+            // })
             }
     }
 
-    removeItem = (id) => {
-        let tempProduct = [...this.state.products];
-        let tempCart = [...this.state.cart];
+    function removeItem(id) {
+        let tempProduct = [...products];
+        let tempCart = [...cart];
         tempCart = tempCart.filter(item => item.id !== id);
-        const index = tempProduct.indexOf(this.getItem(id));
+        const index = tempProduct.indexOf(getItem(id));
 
         let removedProd = tempProduct[index];
 
@@ -86,41 +93,44 @@ class ProductProvider extends Component {
         removedProd.total = 0;
         removedProd.count = 0;
 
-        this.setState(()=> {
-            return {
-                cart: [...tempCart],
-                product: [...tempProduct]
-            }
-        }, ()=> {
-            return this.makeTotal();
-        }
-        )
+        setCart([...tempCart]);
+        setProducts([...tempProduct]);
+        // // this.setState(()=> {
+        // //     return {
+        // //         cart: [...tempCart],
+        // //         product: [...tempProduct]
+        // //     }
+        // // }, ()=> {
+        // //     return this.makeTotal();
+        // // }
+        // )
     }
 
-    makeTotal = () => {
+    useEffect(() => makeTotal(), [products, cart])
+
+    function makeTotal() {
         let subTotal = 0;
-        this.state.cart.map(item => (subTotal += item.total));
+        cart.map(item => (subTotal += item.total));
         const total = subTotal;
-        this.setState(()=> {
-            return {
-                cartSubTotal : subTotal
-            }
-        })
+        setCartSubTotal(subTotal);
     }
 
-    render() {
-        return <ProductContext.Provider value={{
-            ...this.state,
-            handleDetails: this.handleDetails,
-            addToCart: this.addToCart,
-            increment: this.increment,
-            decrement: this.decrement,
-            makeTotal: this.makeTotal,
-            removeItem: this.removeItem
+    return(
+        <ProductContext.Provider value={{
+            products,
+            detailProduct,
+            cart,
+            cartSubTotal,
+            handleDetails: handleDetails,
+            addToCart: addToCart,
+            increment: increment,
+            decrement: decrement,
+            makeTotal: makeTotal,
+            removeItem: removeItem
         }}>
-            {this.props.children}
+            {props.children}
         </ProductContext.Provider>
-    }
+    )
 }
 
 const ProductConsumer = ProductContext.Consumer;
