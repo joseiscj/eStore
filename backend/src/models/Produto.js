@@ -10,8 +10,28 @@ const ProdutoSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    img: {
+        type: String,
+        required: true,
+    },
     preco: {
         type: Number,
+        required: true,
+    },
+    inCart: {
+        type: Boolean,
+        required: true,
+    },
+    count: {
+        type: Number,
+        required: true,
+    },
+    total: {
+        type: Number,
+        required: true,
+    },
+    tipoDoProduto: {
+        type: String,
         required: true,
     },
     inseridoEm: {

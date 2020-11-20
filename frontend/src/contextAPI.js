@@ -3,12 +3,12 @@ const ProductContext = React.createContext();
 
 class ProductProvider extends Component {
     state = {
-        products: [{id: 1, nome: "Carregador de celular", descricao: "Ótimo carregador de celular. Preço camarada.", img: "img/playstation5.jpg", preco: 50, inCart: false, count: 1, total: 50},
+        products: [{id: 1, nome: "Carregador de celular", descricao: "Ótimo carregador de celular. Preço camarada.", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5-qbM2gGKnzROqtCASHRwZ19B8FdnK6jDVFWDjXPQxGy7A6IjKh_WPIHFqOs&usqp=CAc", preco: 50, inCart: false, count: 1, total: 50},
         {id: 2, nome: "Aspirador de pó", descricao: "A forma mais eficiente de sumir com a poeira.", img: "img/playstation5.jpg", preco: 150, inCart: false, count: 1, total: 150},
         {id: 3, nome: "Playstation 5", descricao: "A qualidade da Sony nesse console de última geração.", img: "img/playstation5.jpg", preco:4000, inCart: false, count: 1, total: 4000},
         {id: 4, nome: "Playstation 5", descricao: "A qualidade da Sony nesse console de última geração.", img: "img/playstation5.jpg", preco:4000, inCart: false, count: 1, total: 3000}],
 
-        detailProduct : [{id: 1, nome: "Carregador de celular", descricao: "Ótimo carregador de celular. Preço camarada.", img: "img/playstation5.jpg", preco: 50, inCart: false, count: 1}],
+        detailProduct : [],
 
         cart: [],
         cartSubTotal: 0

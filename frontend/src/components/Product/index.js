@@ -16,7 +16,7 @@ function Product(props) {
                             <Card.Img variant="top" src={img} />
                         </Link>
                         <Card.Body>
-                            <Card.Title>{nome}</Card.Title>
+                            <Card.Title id="nome">{nome}</Card.Title>
                         </Card.Body>
                         <Card.Footer>
                             <Row>
@@ -26,7 +26,7 @@ function Product(props) {
                                     </Button>
                                 </Col>
                                 <Col>
-                                    <span className="text-muted text-right">{"R$ " + preco}</span>
+                                    <span id="preco" className="text-muted text-right">{"R$ " + preco}</span>
                                 </Col>
                             </Row>
                         </Card.Footer>

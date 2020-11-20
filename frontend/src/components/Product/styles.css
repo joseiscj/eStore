@@ -6,3 +6,11 @@ div h5 {
     margin-left: 20px;
 }
 
+#nome {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#preco {
+    font-size: 18px;
+}
