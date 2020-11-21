@@ -5,6 +5,7 @@ import { ProductConsumer } from "../../contextAPI";
 import "./styles.css";
 
 function Header () {
+
     return (
         <div>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
