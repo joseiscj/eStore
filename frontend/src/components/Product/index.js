@@ -6,12 +6,14 @@ import { ProductConsumer } from "../../contextAPI";
 import "./styles.css";
 
 function Product(props) {
-    const { id, nome, img, preco, inCart } = props.product;
+    const { _id, nome, img, preco, inCart } = props.product;
+
+    const id = _id;
     return (
         <div className="col-9 mx-auto col-md-6 col-lg-3">
             <ProductConsumer>
                 {(value) => (
-                    <Card onClick={()=>{value.handleDetails(id)}} style={{ width: "18rem", height: "18rem"}}>
+                    <Card onClick={()=>{value.handleDetails(id)}} style={{ width: "23rem", height: "23rem"}}>
                         <Link to="/details">
                             <Card.Img variant="top" src={img} />
                         </Link>

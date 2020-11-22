@@ -48,12 +48,12 @@ function Cart() {
                                                     {cartData.preco}
                                                 </div>
                                                 <div className="col-10 max-auto col-lg-2">
-                                                    <input input type="button" id="btn_menos" name="btn_menos"  value="-" onClick={() => value.decrement(cartData.id)} />
+                                                    <input input type="button" id="btn_menos" name="btn_menos"  value="-" onClick={() => value.decrement(cartData._id)} />
                                                     {cartData.count}
-                                                    <input type="button" id="btn_mais" name="btn_mais"  value="+" onClick={() => value.increment(cartData.id)}/>
+                                                    <input type="button" id="btn_mais" name="btn_mais"  value="+" onClick={() => value.increment(cartData._id)}/>
                                                 </div>
                                                 <div className="col-10 max-auto col-lg-2">
-                                                    <Button variant="secondary" onClick={()=> {value.removeItem(cartData.id)}} size="sm">Remover</Button>
+                                                    <Button variant="secondary" onClick={()=> {value.removeItem(cartData._id)}} size="sm">Remover</Button>
                                                 </div>
                                                 <div className="col-10 max-auto col-lg-2">
                                                     {cartData.total}

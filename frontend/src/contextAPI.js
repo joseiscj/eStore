@@ -16,13 +16,10 @@ function ProductProvider(props) {
         BaseService.getProducts(path)
           .then(res => setProducts(res.data.docs))
           .catch(error => console.log(error))
-        
-          console.log(path);
-          console.log(products);
       }, [page]);
 
     function getItem(id) {
-        const product = products.find((item) => item.id === id);
+        const product = products.find((item) => item._id === id);
         return product;
     }
 
@@ -45,7 +42,7 @@ function ProductProvider(props) {
 
     function increment(id) {
         let tempCart = [...cart];
-        const selectedProduct = tempCart.find(item => item.id === id);
+        const selectedProduct = tempCart.find(item => item._id === id);
         const index = tempCart.indexOf(selectedProduct);
         const product = tempCart[index];
 
@@ -63,7 +60,7 @@ function ProductProvider(props) {
 
     function decrement(id) {
         let tempCart = [...cart];
-        const selectedProduct = tempCart.find(item => item.id === id);
+        const selectedProduct = tempCart.find(item => item._id === id);
         const index = tempCart.indexOf(selectedProduct);
         const product = tempCart[index];
         if (product.count >= 2) {
@@ -84,7 +81,7 @@ function ProductProvider(props) {
     function removeItem(id) {
         let tempProduct = [...products];
         let tempCart = [...cart];
-        tempCart = tempCart.filter(item => item.id !== id);
+        tempCart = tempCart.filter(item => item._id !== id);
         const index = tempProduct.indexOf(getItem(id));
 
         let removedProd = tempProduct[index];
@@ -106,7 +103,7 @@ function ProductProvider(props) {
         // )
     }
 
-    useEffect(() => makeTotal(), [products, cart])
+    useEffect(() => makeTotal(), [cart, products]);
 
     function makeTotal() {
         let subTotal = 0;

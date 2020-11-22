@@ -8,7 +8,9 @@ function Details(props) {
     return (
         <ProductConsumer>
             {(value) => {
-                const { id, nome, descricao, img, preco, inCart } = value.detailProduct;
+                const { _id, nome, descricao, img, preco, inCart } = value.detailProduct;
+
+                const id = _id;
                 return (
                     <div className="container">
                         <div className="col-10 mx-auto text-center">
