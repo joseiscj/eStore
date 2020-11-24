@@ -5,7 +5,7 @@ const Pedido = mongoose.model("Pedido");
 module.exports = {
     async listarPedidos(req, res) {
         const { page = 1 } = req.query;
-        const pedidos = await Pedido.paginate({}, { page, limit: 10 });
+        const pedidos = await Pedido.paginate({}, { page, limit: 12 });
 
         return res.json(pedidos);
     },

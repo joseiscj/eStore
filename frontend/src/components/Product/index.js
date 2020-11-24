@@ -13,14 +13,14 @@ function Product(props) {
         <div className="col-9 mx-auto col-md-6 col-lg-3">
             <ProductConsumer>
                 {(value) => (
-                    <Card onClick={()=>{value.handleDetails(id)}} style={{ width: "23rem", height: "23rem"}}>
+                    <Card onClick={()=>{value.handleDetails(id)}} style={{ width: "18rem", height: "18rem"}} id="card">
                         <Link to="/details">
                             <Card.Img variant="top" src={img} />
                         </Link>
                         <Card.Body>
                             <Card.Title id="nome">{nome}</Card.Title>
                         </Card.Body>
-                        <Card.Footer>
+                        <Card.Footer id="footer">
                             <Row>
                                 <Col>
                                     <Button size="sm" disabled={inCart} onClick={()=> {value.addToCart(id)}} variant="secondary">

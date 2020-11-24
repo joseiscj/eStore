@@ -56,7 +56,7 @@ function Cart() {
                                                     <Button variant="secondary" onClick={()=> {value.removeItem(cartData._id)}} size="sm">Remover</Button>
                                                 </div>
                                                 <div className="col-10 max-auto col-lg-2">
-                                                    {cartData.total}
+                                                    {parseFloat(cartData.total.toFixed(2))}
                                                 </div>
                                             </div>
                                         </div>
@@ -66,7 +66,7 @@ function Cart() {
                                 <Container>
                                     <Row>
                                         <Col id="total">
-                                            <strong >Total  </strong>R$ {value.cartSubTotal}
+                                            <strong >Total  </strong>R$ {parseFloat(value.cartSubTotal.toFixed(2))}
                                         </Col>
                                     </Row>
                                 </Container>
