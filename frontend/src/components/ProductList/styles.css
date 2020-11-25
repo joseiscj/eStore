@@ -18,10 +18,16 @@ button#b2 {
     margin-top: 10px;
 }
 
-h1 {
+div#h1 {
     color: dimgray;
+    float: left;
+    width: 10%;
 }
 
 p {
     color: dimgrey;
+}
+
+#filter {
+    float: right;
 }

@@ -11,6 +11,7 @@ function Product(props) {
     const id = _id;
     return (
         <div className="col-9 mx-auto col-md-6 col-lg-3">
+            
             <ProductConsumer>
                 {(value) => (
                     <Card onClick={()=>{value.handleDetails(id)}} style={{ width: "18rem", height: "18rem"}} id="card">
