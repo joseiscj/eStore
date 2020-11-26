@@ -49,14 +49,14 @@ function ProductProvider(props) {
     }
 
     function addToCart(id) {
-        let tempProduct = [...products];
+        let tempProduct = [...productList];
         const index = tempProduct.indexOf(getItem(id));
         const product = tempProduct[index];
         product.inCart = true;
         product.count = 1;
         const preco = product.preco;
         product.total = preco;
-        setProducts(tempProduct);
+        setProductList(tempProduct);
         setCart([...cart, product]);
     }
 
