@@ -15,7 +15,7 @@ function Product(props) {
             <ProductConsumer>
                 {(value) => (
                     <Card onClick={()=>{value.handleDetails(id)}} style={{ width: "18rem", height: "18rem"}} id="card">
-                        <Link to="/details">
+                        <Link to={`/details/${id}`}>
                             <Card.Img variant="top" src={img} />
                         </Link>
                         <Card.Body>
