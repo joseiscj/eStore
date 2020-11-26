@@ -45,7 +45,7 @@ function Cart() {
                                                     {cartData.nome}
                                                 </div>
                                                 <div className="col-10 max-auto col-lg-2">
-                                                    {cartData.preco}
+                                                    R$ {cartData.preco}
                                                 </div>
                                                 <div className="col-10 max-auto col-lg-2">
                                                     <input input type="button" id="btn_menos" name="btn_menos"  value="-" onClick={() => value.decrement(cartData._id)} />
@@ -56,7 +56,7 @@ function Cart() {
                                                     <Button variant="secondary" onClick={()=> {value.removeItem(cartData._id)}} size="sm">Remover</Button>
                                                 </div>
                                                 <div className="col-10 max-auto col-lg-2">
-                                                    {parseFloat(cartData.total.toFixed(2))}
+                                                R$ {parseFloat(cartData.total.toFixed(2))}
                                                 </div>
                                             </div>
                                         </div>

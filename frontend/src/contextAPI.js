@@ -11,7 +11,6 @@ function ProductProvider(props) {
 
     const optionDefault = { text: "Selecione uma categoria", value: 0 };
     const [productList, setProductList] = useState([]);
-    
 
     const [page, setPage] = useState(1);
 
