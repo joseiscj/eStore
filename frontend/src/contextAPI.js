@@ -9,7 +9,27 @@ function ProductProvider(props) {
     const [cart, setCart] = useState([]);
     const [cartSubTotal, setCartSubTotal] = useState(0);
 
+    const optionDefault = { text: "Selecione uma categoria", value: 0 };
+    const [productList, setProductList] = useState([]);
+    
+
     const [page, setPage] = useState(1);
+
+    useEffect(() => setProductList(products), [products]);
+
+
+    var filter = (atribute, value) => {
+        if (value == optionDefault.value) {
+            setProductList(products);
+        } else {
+
+            let listFilter = [];
+            products.filter(prod => prod.tipoDoProduto.toUpperCase() == value).map(productFiltered => (
+                listFilter.push(productFiltered)
+            ))
+            setProductList(listFilter);
+        }
+    }
 
     useEffect(() => {
         let path = `/produtos?page=${page}`;
@@ -114,7 +134,7 @@ function ProductProvider(props) {
 
     return(
         <ProductContext.Provider value={{
-            products,
+            productList,
             detailProduct,
             cart,
             cartSubTotal,
@@ -123,7 +143,8 @@ function ProductProvider(props) {
             increment: increment,
             decrement: decrement,
             makeTotal: makeTotal,
-            removeItem: removeItem
+            removeItem: removeItem,
+            filter: filter
         }}>
             {props.children}
         </ProductContext.Provider>
