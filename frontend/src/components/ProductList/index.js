@@ -7,10 +7,10 @@ function ProductList(props) {
     return (
 
         <div className="container">
-            <InputFilter/>
             <div>
                 <h1>Encontre o seu produto com a gente</h1>
             </div>
+            <InputFilter/>
             <div className="row" >
                 <ProductConsumer>
                     {value => {

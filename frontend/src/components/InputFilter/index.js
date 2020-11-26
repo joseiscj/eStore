@@ -3,7 +3,7 @@ import { ProductConsumer } from "../../contextAPI";
 import FilterProduct from "../FilterProduct";
 
 function InputFilter() {
-    const categories = ["LIVRO", "ELETRÔNICO", "INFORMÁTICA", "BRINQUEDOS E JOGOS", "MÓVEIS E DECORAÇÃO"]
+    const categories = ["TODOS OS PRODUTOS", "LIVRO", "ELETRÔNICO", "INFORMÁTICA", "BRINQUEDOS E JOGOS", "MÓVEIS E DECORAÇÃO"]
     return (
         <ProductConsumer>
             {value => 

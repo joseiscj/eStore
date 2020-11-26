@@ -19,7 +19,8 @@ function ProductProvider(props) {
 
 
     var filter = (atribute, value) => {
-        if (value == optionDefault.value) {
+        
+        if (value == optionDefault.value || value == "TODOS OS PRODUTOS") {
             setProductList(products);
         } else {
 
