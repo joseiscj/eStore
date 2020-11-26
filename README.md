@@ -28,6 +28,10 @@ A IDE utilizada foi o Visual Studio Code.
 
 ## Execução do projeto
 
+Para clonar o projeto, basta executar o seguinte comando:
+
+`git clone https://github.com/joseiscj/eStore.git`  
+
 Para instalar as dependências, execute o seguinte comando:
 
  `yarn install`
