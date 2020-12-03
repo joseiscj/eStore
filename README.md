@@ -41,3 +41,8 @@ Depois que as dependências estiverem completamente instaladas, você precisará
 
 `yarn start`
 
+# Dados via postman
+
+Caso prefira adicionar os dados manualmente, abaixo está o link de uma coleção de requests do postman para exportação:
+
+`https://drive.google.com/file/d/10xr6nd5AAi27_475YYU7tUg7lw6GSBpB/view?usp=sharing`
